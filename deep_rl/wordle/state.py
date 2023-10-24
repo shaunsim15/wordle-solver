@@ -33,7 +33,7 @@ def get_nvec(max_turns: int):
     return [max_turns] + [2] * len(WORDLE_CHARS) + [2] * 3 * WORDLE_N * len(WORDLE_CHARS)
 
 
-def new(max_turns: int) -> WordleState: # Takes in an int, returns a WordleState which is a really long Numpy array
+def new(max_turns: int) -> WordleState: # Takes in an int, returns a (starting) WordleState which is a really long Numpy array. This is S_0
     return np.array(
         [max_turns] + [0] * len(WORDLE_CHARS) + [0, 1, 0] * WORDLE_N * len(WORDLE_CHARS),
         dtype=np.int32)
