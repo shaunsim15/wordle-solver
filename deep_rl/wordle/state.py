@@ -43,10 +43,10 @@ def new(max_turns: int) -> WordleState: # Takes in an int, returns a (starting) 
     # Breaking this down, a state contains info about 
     # 1) How many turns we have left: 1 ELEMENT, WHOSE VALUE RANGES FROM 6 TO 0 (I think).
     # 2) Whether each letter from a - z is attempted or not: 26 ELEMENTS, WHOSE VALUES RANGE FROM 0 to 1.
-    # 3) If a letter has been attempted, then for each of the 5 slots, is it a) IN THE SLOT, b) MAYBE IN THE SLOT or c) NOT IN THE SLOT? 3 * 5 * 26 = 390 ELEMENTS, WHOSE VALUES RANGE FROM 0 TO 1.
-    # 3 example) E.g. if target word is HELLO and we guess HANKY, then for the letter 'H', in the 1st slot, we have 1, 0, 0 since 'H' is defo in the 1st slot. 
+    # 3) If a letter has been attempted, then for each of the 5 slots, is it a) NOT IN THE SLOT, b) MAYBE IN THE SLOT or c) IN THE SLOT? 3 * 5 * 26 = 390 ELEMENTS, WHOSE VALUES RANGE FROM 0 TO 1.
+    # 3 example) E.g. if target word is HELLO and we guess HANKY, then for the letter 'H', in the 1st slot, we have 0, 0, 1 since 'H' is defo in the 1st slot. 
     # 3 example) Meanwhile for the letter 'H', in the 2nd, 3rd, 4th and 5th slots, we have 0, 1, 0, since the letter 'H' may be in the remaining 4 slots.
-    # 3 example) Meanwhile for the letter 'A', in the 2nd slot, we have 0, 0, 1 since the letter 'A' is definitely not in the 2nd slot.
+    # 3 example) Meanwhile for the letter 'A', in the 2nd slot, we have 1, 0, 0 since the letter 'A' is definitely not in the 2nd slot.
 
 
 # Returns the remaining steps left in the game (for a given wordle state)
