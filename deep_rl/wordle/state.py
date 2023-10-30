@@ -28,7 +28,7 @@ WORDLE_N = 5
 WordleState = np.ndarray # (short for "n-dimensional array")
 
 
-# Looks similar to the "new" function, except it's a normal list instead of a numpy array, AND all the elements (except max_turns) are set to 2 instead of 0 or 1. The use of '2' (which is outta range) suggests to me that this represents some "invalid" state? Maybe a starting state or terminal state?
+# Looks similar to the "new" function, except it's a normal list instead of a numpy array. This array looks like [6, 2, 2, 2...] and is used to define the multidiscrete observation space in wordle.py. First element is 6 becaues a state can have 6 possible values for this element, other numbers are 2 because a state can have take 2 possible values for this element (0 or 1).
 def get_nvec(max_turns: int):
     return [max_turns] + [2] * len(WORDLE_CHARS) + [2] * 3 * WORDLE_N * len(WORDLE_CHARS)
 
